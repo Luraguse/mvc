@@ -1,0 +1,6 @@
+[23-Feb-2013 23:40:54 America/New_York] PHP Fatal error:  Call to a member function all() on a non-object in /home/raymundo/public_html/tests/th_website/application/controllers/homecontroller.php on line 8
+[23-Feb-2013 23:46:04 America/New_York] PHP Fatal error:  Class 'CombinarJs' not found in /home/raymundo/public_html/tests/th_website/library/html.class.php on line 48
+[23-Feb-2013 23:48:21 America/New_York] PHP Fatal error:  Class 'CombinarJs' not found in /home/raymundo/public_html/tests/th_website/library/html.class.php on line 48
+[23-Feb-2013 23:49:01 America/New_York] PHP Fatal error:  Class 'CombinarJs' not found in /home/raymundo/public_html/tests/th_website/library/html.class.php on line 48
+[23-Feb-2013 23:49:04 America/New_York] PHP Fatal error:  Class 'CombinarJs' not found in /home/raymundo/public_html/tests/th_website/library/html.class.php on line 48
+[23-Feb-2013 23:54:16 America/New_York] PHP Fatal error:  Class 'CombinarJs' not found in /home/raymundo/public_html/tests/th_website/library/html.class.php on line 49
