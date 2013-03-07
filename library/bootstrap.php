@@ -16,5 +16,5 @@ function __autoload($className) {
     }
 }
 $bootstrap = new BootStrap();
-$bootstrap->setErrorReporting(false);
+$bootstrap->setErrorReporting(true);
 $bootstrap->init();

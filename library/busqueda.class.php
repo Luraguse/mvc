@@ -1,5 +1,7 @@
 <?php
-class Busqueda extends Database {
+class Busqueda {
+    
+    private $_connection;
 
 	private $_orderBy;
 	private $_order;
@@ -19,13 +21,9 @@ class Busqueda extends Database {
 	private $_likeMode = "nonStrict";
     
 	// Conectarse
-	public function __construct($model, $DB_HOST = DB_HOST, $DB_NAME = DB_NAME, $DB_USER = DB_USER, $DB_PASS = DB_PASSWORD, $DB_TYPE = "mysql") {
+	public function __construct($connection, $model) {
 		$this->_mainTable = $model;
-        try {
-        	parent::__construct($DB_TYPE, $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS);
-        } catch (PDOException $e) {
-        	echo "ERROR: " . $e->getMessage();
-        }
+        $this->_connection = $connection->connection();
     }
     
     public function setTable($table){
@@ -165,7 +163,7 @@ class Busqueda extends Database {
     
 	public function getResults() {
 		$this->getStatements();
-		$result = $this->prepare($this->_resultsQuery);
+		$result = $this->_connection->prepare($this->_resultsQuery);
 		$result->setFetchMode(PDO::FETCH_ASSOC);
 		if($this->_searchType == "where") {
 			foreach($this->_search as $key => $val) {
@@ -182,7 +180,7 @@ class Busqueda extends Database {
             echo "ERROR: " . $e->getMessage();
         }
         
-		$page = $this->prepare($this->_queryTotalPages);
+		$page = $this->_connection->prepare($this->_queryTotalPages);
 		$page->setFetchMode(PDO::FETCH_ASSOC);
 		foreach($this->_search as $key => $val) {
 			$page->bindValue($key,$val);
