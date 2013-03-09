@@ -49,18 +49,6 @@ class CombinarCss extends CombinarArchivos {
      * @return string Regresa el link al css.
      */
     public function regresarCss() {
-        /*
-        if(file_exists($this->_ruta_para_archivo)) {
-            if ($this->_fecha_de_modificacion_archivo < $this->_fecha_modificacion_template) {
-                $this->guardar_archivo($this->_ruta_para_archivo, $this->parse_archivos($this->_lista_de_archivos, $this->_array_de_valores));
-            }
-        } else {
-            $this->guardar_archivo($this->_ruta_para_archivo, $this->parse_archivos($this->_lista_de_archivos, $this->_array_de_valores));
-        }
-        return "<a href='".$this->_ruta_para_archivo."'>CSS Creado</a>";
-         */
         return $this->getFile();
     }
 }
-
-?>

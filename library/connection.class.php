@@ -4,7 +4,7 @@ class Connection{
     
     private $connection;
 
-	public function __construct($DB_TYPE, $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS) {
+	public function __construct($DB_TYPE = "mysql", $DB_HOST = DB_HOST, $DB_NAME = DB_NAME, $DB_USER = DB_USER, $DB_PASS = DB_PASSWORD) {
 		$this->connect($DB_TYPE, $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS);
 	}
     

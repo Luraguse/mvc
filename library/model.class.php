@@ -1,18 +1,18 @@
 <?php
 class Model {
-    protected $_model;
+    protected $ModelName;
     protected $Buscar;
     
     public $Sanitize = array();
     public $Validate = array();
-    public $_jsFiles;
+    public $jsFiles;
     public $CombinarJs;
     
     function __construct() {
-        //$this->buscar = new SQLQuery(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-        $this->Connection = new Connection( $DB_TYPE = "mysql", $DB_HOST = DB_HOST, $DB_NAME = DB_NAME, $DB_USER = DB_USER, $DB_PASS = DB_PASSWORD);
-        $this->Buscar = new Busqueda($this->Connection, strtolower(get_class($this)));
-        $this->_model = get_class($this);
+        $this->ModelName = get_class($this);
+        $this->Connection = new Connection();
+        $this->Buscar = new Busqueda($this->Connection, strtolower($this->ModelName));
+        $this->DataBase = new DataBase($this->Connection, strtolower($this->ModelName));
     }
     
     public function Buscar() {

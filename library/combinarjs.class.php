@@ -15,16 +15,5 @@ class CombinarJs extends CombinarArchivos {
     
     public function regresarJs() {
         return $this->getFile();
-        /*
-        if(file_exists($this->_ruta_para_archivo)) {
-            if($this->comparar_fechas_de_modificacion($this->_lista_de_archivos, $this->_ruta_para_archivo)) {
-               $this->guardar_archivo($this->_ruta_para_archivo, $this->combinar_contenido_de_archivos($this->_lista_de_archivos)); 
-            }
-        } else {
-            $this->guardar_archivo($this->_ruta_para_archivo, $this->combinar_contenido_de_archivos($this->_lista_de_archivos));
-        }
-        return $this->_ruta_para_archivo;
-        */
     }
 }
-?>

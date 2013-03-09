@@ -1,8 +1,6 @@
 <?php
 
 class HTML {
-	private $js = array();
-    public $CombinarJs;
 
 	function shortenUrls($data) {
 		$data = preg_replace_callback('@(https?://([-\w\.]+)+(:\d+)?(/([\w/_\.]*(\?\S+)?)?)?)@', array(get_class($this), '_fetchTinyUrl'), $data);
