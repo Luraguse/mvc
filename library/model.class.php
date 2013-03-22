@@ -1,6 +1,6 @@
 <?php
 class Model {
-    protected $ModelName;
+    protected $modelName;
     protected $Buscar;
     
     public $Sanitize = array();
@@ -9,10 +9,9 @@ class Model {
     public $CombinarJs;
     
     function __construct() {
-        $this->ModelName = get_class($this);
-        $this->Connection = new Connection();
-        $this->Buscar = new Busqueda($this->Connection, strtolower($this->ModelName));
-        $this->DataBase = new DataBase($this->Connection, strtolower($this->ModelName));
+        $this->modelName = strtolower(get_class($this));
+        $this->dataBase = new DataBase($this->modelName);
+        //$this->DataBase = new DataBase($this->ModelName);
     }
     
     public function Buscar() {

@@ -1,5 +1,5 @@
 <?php
-class Busqueda {
+class Query {
     
     private $_connection;
 
@@ -13,7 +13,7 @@ class Busqueda {
 	private $_page = 1;
 	private $_totalResults;
 
-	private $_mainTable;
+	protected $_mainTable;
 
 	private $_search = array();
 	private $_returnFields = array();
@@ -21,9 +21,8 @@ class Busqueda {
 	private $_likeMode = "nonStrict";
     
 	// Conectarse
-	public function __construct($connection, $model) {
+	public function __construct($model) {
 		$this->_mainTable = $model;
-        $this->_connection = $connection->connection();
     }
     
     public function setTable($table){
@@ -162,6 +161,9 @@ class Busqueda {
 	}
     
 	public function getResults() {
+        if($this->_connection == null) {
+            $this->_connection = new Connection();
+        }
 		$this->getStatements();
 		$result = $this->_connection->prepare($this->_resultsQuery);
 		$result->setFetchMode(PDO::FETCH_ASSOC);

@@ -14,8 +14,8 @@ class BootStrap {
 	private function setUrl() {
 		$url = isset($_GET['url'])?rtrim($_GET['url'], "/"):null;
 		$urlArray = explode("/", $url);
-		$this->controller 		= (!empty($urlArray[0]) && $urlArray !== "")?$urlArray[0]:'home';
-		$this->action 	 		= isset($urlArray[1])?$urlArray[1]:'index';
+		$this->controller 		= (!empty($urlArray[0]) && $urlArray !== "")?$urlArray[0]:DEFAULT_CONTROLLER;
+		$this->action 	 		= isset($urlArray[1])?$urlArray[1]:DEFAULT_ACTION;
 		$this->param['param1']	= isset($urlArray[2])?$urlArray[2]:null;
 		$this->param['param2']	= isset($urlArray[3])?$urlArray[3]:null;
 		$this->param['param3']	= isset($urlArray[4])?$urlArray[4]:null;

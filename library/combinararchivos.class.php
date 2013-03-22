@@ -31,7 +31,7 @@ class CombinarArchivos {
         $dir = opendir($directorio);
         $array_archivos = array();
         while($archivo = readdir($dir)) {
-            if(pathinfo($archivo, PATHINFO_EXTENSION) == $extension) {
+            if(pathinfo($archivo, PATHINFO_EXTENSION) == $extension && pathinfo($archivo, PATHINFO_FILENAME) != "custom") {
                 if($extension == "js")
                     $array_archivos[] = JS_FULL_PATH.DS.$archivo;
                 else if($extension == "css")
@@ -98,7 +98,7 @@ class CombinarArchivos {
         if ($archivos_existen === true){
             $contenido = "";
             foreach($this->_lista_de_archivos as $archivo) {
-                $contenido .= file_get_contents($archivo);
+                $contenido .= file_get_contents($archivo)."\n";
             }
             return $contenido;
         } else {
